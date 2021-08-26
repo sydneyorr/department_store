@@ -1,7 +1,10 @@
 class DepartmentsController < ApplicationController
+
+  before_action :set_department, only: [:create, :show, :edit, :update]
+
   def index
-    departments = Department.all
-    render component: "Departments", props: { departments: departments}
+    @departments = Department.all
+    render component: "Departments", props: { departments: @departments}
   end
 
   def new
@@ -9,33 +12,33 @@ class DepartmentsController < ApplicationController
   end
 
   def create
-    department = Department.new(department_params)
-    if department.save
+    # department = Department.new(department_params)
+    if @department.save
       redirect_to departments_path
     else
     end
   end
 
   def show
-    department = Department.find(params[:id])
-    render component: "Department", props: { department: department }
+    # department = Department.find(params[:id])
+    render component: "Department", props: { department: @department }
   end
 
   def edit
-    department = Department.find(params[:id])
-    render component: "EditDepartment", props: { department: department }
+    # department = Department.find(params[:id])
+    render component: "EditDepartment", props: { department: @department }
   end
 
   def update
-    department = Department.find(params[:id])
-    if department.update(department_params)
+    # department = Department.find(params[:id])
+    if @department.update(department_params)
       redirect_to departments_path
     else
     end
   end
 
   def destroy
-    Department.find(params[:id]).delete
+    Department.find(params[:id]).destroy
       redirect_to departments_path
     end
 
@@ -48,6 +51,6 @@ def department_params
 end
 
 def set_department
-  @dep = Department.find(params[:id])
+  @department = Department.find(params[:id])
 end
 
