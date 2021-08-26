@@ -9,6 +9,7 @@ const NewDepartment = () => {
       <input name="department[name]"/>
       <button type="submit">Create</button>
     </form>
+    <a href="/">Back</a>
     </div>
   );
 };

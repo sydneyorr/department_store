@@ -26,6 +26,19 @@ class DepartmentsController < ApplicationController
     render component: "EditDepartment", props: { department: department }
   end
 
+  def update
+    department = Department.find(params[:id])
+    if department.update(department_params)
+      redirect_to departments_path
+    else
+    end
+  end
+
+  def destroy
+    Department.find(params[:id]).delete
+      redirect_to departments_path
+    end
+
 end
 
 private
@@ -34,6 +47,7 @@ def department_params
   params.require(:department).permit(:name)
 end
 
-def find_department
+def set_department
   @dep = Department.find(params[:id])
 end
+

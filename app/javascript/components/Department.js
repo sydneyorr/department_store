@@ -4,6 +4,7 @@ const Department = (props) => {
   return (
     <div>
       <p>{props.department.name}</p>
+      <a href="/">Back</a>
     </div>
   );
 };
