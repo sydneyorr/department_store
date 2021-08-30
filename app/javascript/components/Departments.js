@@ -10,6 +10,7 @@ const Departments = (props) => {
           <div key={department.id}>
             <p>ID:{department.id}</p>
             <p>{department.name}</p>
+            <a href={`/departments/${department.id}/items`}>All Items</a>
             <div>
               <a href={`/departments/${department.id}`}>Show</a>
               <a href={`/departments/${department.id}/edit`}>Edit</a>

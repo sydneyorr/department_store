@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
 
-  before_action :set_department, only: [:create, :show, :edit, :update]
+  before_action :set_department, only: [:show, :edit, :update]
 
   def index
     @departments = Department.all
@@ -12,15 +12,15 @@ class DepartmentsController < ApplicationController
   end
 
   def create
-    # department = Department.new(department_params)
-    if @department.save
+    department = Department.new(department_params)
+    if department.save
       redirect_to departments_path
     else
     end
   end
 
   def show
-    # department = Department.find(params[:id])
+    department = Department.find(params[:id])
     render component: "Department", props: { department: @department }
   end
 

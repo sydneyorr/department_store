@@ -6,6 +6,10 @@ resources :departments do
   resources :items
 end
 
+resources :items do
+  resources :comments
+end
+
 
   # get "/departments", to:"departments#index"
   # get "/departments/new", to:"departments#new"
